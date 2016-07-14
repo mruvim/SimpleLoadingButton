@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5E0DED30147EBFC5792E4DE3 /* Pods_SimpleLoadingButton_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879F4EF997E8D50CC6F819B8 /* Pods_SimpleLoadingButton_Tests.framework */; };
-		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
-		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
-		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		93F977D0A864FA17DABB6124 /* Pods_SimpleLoadingButton_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AC8DEF0C4B37B23DC0DF74 /* Pods_SimpleLoadingButton_Example.framework */; };
+		C742CEFC1D376C6F0057AA27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742CEF91D376C6F0057AA27 /* AppDelegate.swift */; };
+		C742CEFD1D376C6F0057AA27 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742CEFA1D376C6F0057AA27 /* ExampleController.swift */; };
+		C742CEFE1D376C6F0057AA27 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742CEFB1D376C6F0057AA27 /* NSObjectExtensions.swift */; };
+		C742CF001D376CAC0057AA27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C742CEFF1D376CAC0057AA27 /* Images.xcassets */; };
+		C742CF051D376CB40057AA27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C742CF011D376CB40057AA27 /* Main.storyboard */; };
+		C742CF061D376CB40057AA27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C742CF031D376CB40057AA27 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,17 +34,18 @@
 		4E35A33B5956F7B130686288 /* SimpleLoadingButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SimpleLoadingButton.podspec; path = ../SimpleLoadingButton.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SimpleLoadingButton_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleLoadingButton_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* SimpleLoadingButton_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleLoadingButton_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6FA956AFF9EB911E1DE2AB79 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		75A2D22B621D76BF8A4E4D39 /* Pods-SimpleLoadingButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleLoadingButton_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleLoadingButton_Example/Pods-SimpleLoadingButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		879F4EF997E8D50CC6F819B8 /* Pods_SimpleLoadingButton_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleLoadingButton_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C742CEF91D376C6F0057AA27 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C742CEFA1D376C6F0057AA27 /* ExampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
+		C742CEFB1D376C6F0057AA27 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
+		C742CEFF1D376CAC0057AA27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C742CF021D376CB40057AA27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C742CF041D376CB40057AA27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E2AC8DEF0C4B37B23DC0DF74 /* Pods_SimpleLoadingButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleLoadingButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37AA166ADA6B528D8EB5E09 /* Pods-SimpleLoadingButton_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleLoadingButton_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleLoadingButton_Tests/Pods-SimpleLoadingButton_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EDD306A05C4B8167DAA9C3DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -72,8 +74,8 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for SimpleLoadingButton */,
+				607FACD21AFB9204008FA782 /* Example */,
+				607FACF51AFB993E008FA782 /* Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				C19D8F8D30AF99FED3DC8E75 /* Pods */,
@@ -90,17 +92,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for SimpleLoadingButton */ = {
+		607FACD21AFB9204008FA782 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				C742CEF91D376C6F0057AA27 /* AppDelegate.swift */,
+				C742CEFA1D376C6F0057AA27 /* ExampleController.swift */,
+				C742CF011D376CB40057AA27 /* Main.storyboard */,
+				C742CF031D376CB40057AA27 /* LaunchScreen.xib */,
+				C742CEFF1D376CAC0057AA27 /* Images.xcassets */,
+				C742CF0B1D376E760057AA27 /* Extensions */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
-			name = "Example for SimpleLoadingButton";
+			name = Example;
 			path = SimpleLoadingButton;
 			sourceTree = "<group>";
 		};
@@ -129,14 +132,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+		607FACF51AFB993E008FA782 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
 				4E35A33B5956F7B130686288 /* SimpleLoadingButton.podspec */,
 				EDD306A05C4B8167DAA9C3DC /* README.md */,
 				6FA956AFF9EB911E1DE2AB79 /* LICENSE */,
 			);
-			name = "Podspec Metadata";
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 		C19D8F8D30AF99FED3DC8E75 /* Pods */ = {
@@ -148,6 +151,14 @@
 				0A804F2D5DFCF29D4FB9D4A5 /* Pods-SimpleLoadingButton_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C742CF0B1D376E760057AA27 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C742CEFB1D376C6F0057AA27 /* NSObjectExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		EB8160599382F30BF41BD9D5 /* Frameworks */ = {
@@ -166,12 +177,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SimpleLoadingButton_Example" */;
 			buildPhases = (
+				CA368838E7E3C2A6932B1A60 /* 📦 Check Pods Manifest.lock */,
 				5ED4929F78B0F37C5682F63E /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				0DA5348502267AC323C60B62 /* [CP] Embed Pods Frameworks */,
 				B13EE47C33AA4CE390AF71E0 /* [CP] Copy Pods Resources */,
+				5A557888D9CADEACFAA20E45 /* 📦 Embed Pods Frameworks */,
+				1C4D041A290BFF571C2677E8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,12 +200,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SimpleLoadingButton_Tests" */;
 			buildPhases = (
+				CDB37F0A0D57F3F401270DE8 /* 📦 Check Pods Manifest.lock */,
 				10A36AEAD10D44B7A533F6C8 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
 				F43DF732DDC33F607D7F4158 /* [CP] Embed Pods Frameworks */,
 				D91EE80906D578BB4570BC2F /* [CP] Copy Pods Resources */,
+				57CD67F3890066B651531821 /* 📦 Embed Pods Frameworks */,
+				5E8F9692E1734E1E5838B4EC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,7 +226,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -246,9 +263,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				C742CF001D376CAC0057AA27 /* Images.xcassets in Resources */,
+				C742CF061D376CB40057AA27 /* LaunchScreen.xib in Resources */,
+				C742CF051D376CB40057AA27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +309,66 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		1C4D041A290BFF571C2677E8 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleLoadingButton_Example/Pods-SimpleLoadingButton_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57CD67F3890066B651531821 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleLoadingButton_Tests/Pods-SimpleLoadingButton_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A557888D9CADEACFAA20E45 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleLoadingButton_Example/Pods-SimpleLoadingButton_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E8F9692E1734E1E5838B4EC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleLoadingButton_Tests/Pods-SimpleLoadingButton_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5ED4929F78B0F37C5682F63E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,6 +397,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleLoadingButton_Example/Pods-SimpleLoadingButton_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA368838E7E3C2A6932B1A60 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CDB37F0A0D57F3F401270DE8 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D91EE80906D578BB4570BC2F /* [CP] Copy Pods Resources */ = {
@@ -359,8 +466,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				C742CEFD1D376C6F0057AA27 /* ExampleController.swift in Sources */,
+				C742CEFC1D376C6F0057AA27 /* AppDelegate.swift in Sources */,
+				C742CEFE1D376C6F0057AA27 /* NSObjectExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,18 +491,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
+		C742CF011D376CB40057AA27 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
+				C742CF021D376CB40057AA27 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
+		C742CF031D376CB40057AA27 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				607FACDF1AFB9204008FA782 /* Base */,
+				C742CF041D376CB40057AA27 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -489,11 +597,13 @@
 			baseConfigurationReference = 75A2D22B621D76BF8A4E4D39 /* Pods-SimpleLoadingButton_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SimpleLoadingButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -502,6 +612,7 @@
 			baseConfigurationReference = 33E2C13174625C5E677CB78B /* Pods-SimpleLoadingButton_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SimpleLoadingButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -514,10 +625,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E37AA166ADA6B528D8EB5E09 /* Pods-SimpleLoadingButton_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -533,10 +641,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A804F2D5DFCF29D4FB9D4A5 /* Pods-SimpleLoadingButton_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";

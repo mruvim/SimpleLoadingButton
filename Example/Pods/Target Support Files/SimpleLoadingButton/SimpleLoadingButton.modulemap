@@ -1,0 +1,6 @@
+framework module SimpleLoadingButton {
+  umbrella header "SimpleLoadingButton-umbrella.h"
+
+  export *
+  module * { export * }
+}

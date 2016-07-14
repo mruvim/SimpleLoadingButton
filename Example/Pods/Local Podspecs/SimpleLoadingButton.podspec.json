@@ -1,0 +1,22 @@
+{
+  "name": "SimpleLoadingButton",
+  "version": "0.1.0",
+  "summary": "A short description of SimpleLoadingButton.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/SimpleLoadingButton",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ruva": "iruva@me.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/SimpleLoadingButton.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SimpleLoadingButton/Classes/**/*"
+}

@@ -1,0 +1,16 @@
+PODS:
+  - SimpleLoadingButton (0.1.0)
+
+DEPENDENCIES:
+  - SimpleLoadingButton (from `../`)
+
+EXTERNAL SOURCES:
+  SimpleLoadingButton:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SimpleLoadingButton: 98e8a1c360a5d30149e63045b9facc8e8ebcd7f0
+
+PODFILE CHECKSUM: cce836a738011e4bc0fdca9f29d438c06c07f3bd
+
+COCOAPODS: 1.0.0

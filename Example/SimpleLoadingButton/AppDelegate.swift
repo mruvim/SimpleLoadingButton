@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SimpleLoadingButton
 //
-//  Created by Ruva on 07/13/2016.
+//  Created by Ruva on 07/01/2016.
 //  Copyright (c) 2016 Ruva. All rights reserved.
 //
 
@@ -40,7 +40,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
