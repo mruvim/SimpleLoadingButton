@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
 
 s.name                    = "SimpleLoadingButton"
 s.version                 = "0.1.1"
-s.license                 = { :type => "MIT", :file => "LICENSE.md"}
+s.license                 = { :type => "MIT", :file => "LICENSE"}
 
-s.summary                 = "Simple button with loading animation"
 s.homepage                = "https://github.com/mruvim/SimpleLoadingButton"
+s.summary                 = "Simple button with loading animation"
 s.author                  = { "Ruvim Miksanskiy" => "ruva@codingroup.com" }
 s.source                  = { :git => "https://github.com/mruvim/SimpleLoadingButton.git", :tag => s.version, :branch => "master"}
 
