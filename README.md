@@ -36,6 +36,11 @@ Add files from `SimpleLoadingButton/Classes/*` to your project
 
 Compatible with `iOS 8, iOS 9`
 
+##Contribution
+
+Found a bug? Please create an [issue](https://github.com/mruvim/SimpleLoadingButton/issues) </br>
+Would like to improve? Please send a pull request 
+
 
 ## Contact
 
