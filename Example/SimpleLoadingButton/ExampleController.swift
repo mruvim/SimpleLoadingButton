@@ -31,7 +31,7 @@ class ExampleController: UIViewController {
     }
     
     private func buttonTapped() {
-        NSObject.doSomeAsyncWork(secondsToWait: 3) { [weak self] in
+        NSObject.doSomeAsyncWork(secondsToWait: 4) { [weak self] in
             self?.loadingButton.stop()
         }
     }
