@@ -9,19 +9,18 @@ Simple button with loading animation
 ####CocoaPods:
 
 ```
-pod 'SimpleLoadingButton', '~> 0.1.0'
+pod 'SimpleLoadingButton', '~> 0.1.1'
 ```
 
-
-
-####Install
 
 ```
 $ pod install
 ```
 
+
 ####Manual:
 Add files from `SimpleLoadingButton/Classes/*` to your project
+
 
 
 ##How to use it 
@@ -29,6 +28,8 @@ Add files from `SimpleLoadingButton/Classes/*` to your project
 2. Style button in the IB Inspector
 3. Call `your-instance.stop()` when you want animation to stop
 4. `buttonTappedHandler` callback will be called on .ToupUpInside event 
+
+To view the sample project run `pod try SimpleLoadingButton` from terminal
 
 
 
