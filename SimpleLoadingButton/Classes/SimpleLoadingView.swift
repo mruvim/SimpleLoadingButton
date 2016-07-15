@@ -35,11 +35,15 @@ internal class SimpleLoadingView: UIView {
     
     
     /**
-        Setup loading view
+     Setup loading view
      */
     private func setupView() -> Void {
         
-        let centerView = createCircleView(withSize: animatingShapeSize)
+        let centerViewFrame = CGRectMake(CGRectGetMidX(frame) - animatingShapeSize.width / 2,
+                                         CGRectGetMidY(frame) - animatingShapeSize.height / 2,
+                                         animatingShapeSize.width,
+                                         animatingShapeSize.height)
+        let centerView = createCircleView(withFrame:centerViewFrame)
         addSubview(centerView)
         
         centerView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,8 +53,9 @@ internal class SimpleLoadingView: UIView {
         let centerViewYConstraint = NSLayoutConstraint(item:centerView, attribute:.CenterY, relatedBy:.Equal, toItem:self, attribute:.CenterY, multiplier:1, constant: 0)
         addConstraints([centerViewWidthConstraint, centerViewHeightConstraint, centerViewXConstraint, centerViewYConstraint])
         
-        
-        let leftView = createCircleView(withSize: animatingShapeSize)
+        var leftViewFrame = centerViewFrame
+        leftViewFrame.origin.x = centerViewFrame.origin.x - animatingShapeSize.width - 5
+        let leftView = createCircleView(withFrame: leftViewFrame)
         addSubview(leftView)
         
         leftView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,8 +65,9 @@ internal class SimpleLoadingView: UIView {
         let leftViewYConstraint = NSLayoutConstraint(item:leftView, attribute:.CenterY, relatedBy:.Equal, toItem:centerView, attribute:.CenterY, multiplier:1, constant: 0)
         addConstraints([leftViewWidthConstraint, leftViewHeightConstraint, leftViewXConstraint, leftViewYConstraint])
         
-        
-        let rightView = createCircleView(withSize: animatingShapeSize)
+        var rightViewFrame = centerViewFrame
+        rightViewFrame.origin.x = centerViewFrame.origin.x + animatingShapeSize.width + 5
+        let rightView = createCircleView(withFrame:rightViewFrame)
         addSubview(rightView)
         
         rightView.translatesAutoresizingMaskIntoConstraints = false
@@ -75,17 +81,17 @@ internal class SimpleLoadingView: UIView {
     
     
     /**
-    Factory method to create animating views
+     Factory method to create animating views
      
      - parameter size: Size of the loading circle
      - returns: UIView masked to circle shape
      */
-    private func createCircleView(withSize size:CGSize) -> UIView {
+    private func createCircleView(withFrame circleFrame:CGRect) -> UIView {
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.path = UIBezierPath(ovalInRect: CGRect(x:0, y:0, width:size.width, height:size.height)).CGPath
+        shapeLayer.path = UIBezierPath(ovalInRect: CGRect(x:0, y:0, width:CGRectGetWidth(circleFrame), height:CGRectGetHeight(circleFrame))).CGPath
         
-        let ovalView = UIView(frame: CGRectMake(0, 0, size.width, size.height))
+        let ovalView = UIView(frame:circleFrame)
         ovalView.backgroundColor = UIColor.whiteColor()
         ovalView.layer.mask = shapeLayer
         ovalView.alpha = kLoadingViewAlpha
@@ -153,6 +159,6 @@ extension SimpleLoadingView {
      Stop loading animation
      */
     func stopAnimation() -> Void {
-       _ = viewsArray.map( { $0.removeFromSuperview() } )
+        _ = viewsArray.map( { $0.removeFromSuperview() } )
     }
 }
