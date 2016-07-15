@@ -11,7 +11,7 @@ Simple button with loading animation
 ```
 pod 'SimpleLoadingButton', '~> 0.1.1'
 ```
-
+and
 
 ```
 $ pod install
@@ -24,12 +24,12 @@ Add files from `SimpleLoadingButton/Classes/*` to your project
 
 
 ##How to use it 
-1. Add view to your controller, change class to `SimpleLoadingButton`
-2. Style button in the IB Inspector
-3. Call `your-instance.stop()` when you want animation to stop
-4. `buttonTappedHandler` callback will be called on .ToupUpInside event 
+1. Add view in IB, change class to `SimpleLoadingButton`
+2. Style button properties in IB Inspector
+3. Create IBOutlet and call `buttonInstance.stop()` to stop animation
+4. `buttonTappedHandler` callback will be invoked on `.TouchUpInside` event 
 
-To view the sample project run `pod try SimpleLoadingButton` from terminal
+To view sample project run `pod try SimpleLoadingButton` in terminal
 
 
 
