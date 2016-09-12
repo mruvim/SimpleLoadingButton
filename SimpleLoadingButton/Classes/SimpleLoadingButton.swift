@@ -182,20 +182,29 @@ extension SimpleLoadingButton {
     
     //MARK: - Touch handling
     override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
-        guard state == .Normal, let touchLocation = touches.first?.locationInView(self) where CGRectContainsPoint(self.bounds, touchLocation) else { return }
+        
+        guard state == .Normal, let touchLocation = touches.first?.locationInView(self) where CGRectContainsPoint(self.bounds, touchLocation) else {
+            super.touchesBegan(touches, withEvent: event)
+            return
+        }
         state = .Highlighted
     }
     
     public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesMoved(touches, withEvent: event)
-        guard state != .Loading, let touchLocation = touches.first?.locationInView(self) else { return }
+        
+        guard state != .Loading, let touchLocation = touches.first?.locationInView(self) else {
+            super.touchesMoved(touches, withEvent: event)
+            return
+        }
         state = CGRectContainsPoint(self.bounds, touchLocation) ? .Highlighted : .Normal
     }
     
     override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
-        guard state == .Highlighted, let touchLocation = touches.first?.locationInView(self) where CGRectContainsPoint(self.bounds, touchLocation) else { return }
+        
+        guard state == .Highlighted, let touchLocation = touches.first?.locationInView(self) where CGRectContainsPoint(self.bounds, touchLocation) else {
+            super.touchesEnded(touches, withEvent: event)
+            return
+        }
         state = .Loading
         if let handler = buttonTappedHandler { handler() }
     }

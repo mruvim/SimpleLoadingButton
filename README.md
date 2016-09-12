@@ -9,7 +9,7 @@ Simple button with loading animation
 ####CocoaPods:
 
 ```
-pod 'SimpleLoadingButton', '~> 0.1.2'
+pod 'SimpleLoadingButton', '~> 0.1.3'
 ```
 and
 
@@ -35,7 +35,7 @@ To view sample project run `pod try SimpleLoadingButton` in terminal
 
 ## Requirements
 
-Compatible with `iOS 8, iOS 9`
+Compatible with `Xcode 7|8, iOS 8, iOS 9, iOS 10`
 
 ##Contribution
 
