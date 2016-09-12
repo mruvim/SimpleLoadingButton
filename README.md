@@ -9,7 +9,7 @@ Simple button with loading animation
 ####CocoaPods:
 
 ```
-pod 'SimpleLoadingButton', '~> 0.1.3'
+pod 'SimpleLoadingButton', '~> 0.1.4'
 ```
 and
 
