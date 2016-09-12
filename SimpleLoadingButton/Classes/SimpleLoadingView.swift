@@ -15,6 +15,7 @@ internal class SimpleLoadingView: UIView {
     private let kScaleFactor:CGFloat = 1.1
     private var animationDuration:Double = 2.0
     private var animatingShapeSize:CGSize = CGSizeMake(10, 10)
+    private var loadingIndicatorColor:UIColor = UIColor.whiteColor()
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -26,10 +27,11 @@ internal class SimpleLoadingView: UIView {
         
     }
     
-    convenience init(withFrame frame: CGRect, animationDuration duration:Double = 2.0, animatingShapeSize shapeSize:CGSize = CGSizeMake(10, 10)) {
+    convenience init(withFrame frame: CGRect, animationDuration duration:Double = 2.0, animatingShapeSize shapeSize:CGSize = CGSizeMake(10, 10), loadingIndicatorColor color:UIColor = UIColor.whiteColor()) {
         self.init(frame: frame)
         animationDuration = duration
         animatingShapeSize = shapeSize
+        loadingIndicatorColor = color
         setupView()
     }
     
@@ -92,7 +94,7 @@ internal class SimpleLoadingView: UIView {
         shapeLayer.path = UIBezierPath(ovalInRect: CGRect(x:0, y:0, width:CGRectGetWidth(circleFrame), height:CGRectGetHeight(circleFrame))).CGPath
         
         let ovalView = UIView(frame:circleFrame)
-        ovalView.backgroundColor = UIColor.whiteColor()
+        ovalView.backgroundColor = loadingIndicatorColor
         ovalView.layer.mask = shapeLayer
         ovalView.alpha = kLoadingViewAlpha
         return ovalView

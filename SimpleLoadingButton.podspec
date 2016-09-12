@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name                    = "SimpleLoadingButton"
-s.version                 = "0.1.2"
+s.version                 = "0.1.4"
 s.license                 = { :type => "MIT", :file => "LICENSE"}
 
 s.homepage                = "https://github.com/mruvim/SimpleLoadingButton"

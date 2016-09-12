@@ -57,6 +57,9 @@ public class SimpleLoadingButton: UIView {
         }
     }
     
+    /// Loading indicator color
+    @IBInspectable var loadingIndicatorColor:UIColor = UIColor.whiteColor()
+    
     /// Border width
     @IBInspectable var borderWidth:CGFloat = 0 {
         didSet { updateStyle() }
@@ -245,7 +248,7 @@ extension SimpleLoadingButton {
     private func showLoadingView() -> Void {
         
         guard let titleLabel = currentlyVisibleView as? UILabel else { return }
-        let loadingView = SimpleLoadingView(withFrame:titleLabel.frame, animationDuration: loadingAnimationDuration, animatingShapeSize:loadingShapeSize)
+        let loadingView = SimpleLoadingView(withFrame:titleLabel.frame, animationDuration: loadingAnimationDuration, animatingShapeSize:loadingShapeSize, loadingIndicatorColor:loadingIndicatorColor)
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(loadingView)
         currentlyVisibleView = loadingView
