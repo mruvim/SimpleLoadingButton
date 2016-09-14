@@ -9,7 +9,7 @@
 import Foundation
 
 extension NSObject {
-   class func doSomeAsyncWork(secondsToWait seconds:NSTimeInterval, completion:()->Void) -> Void {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { completion() }
+   class func doSomeAsyncWork(secondsToWait seconds:TimeInterval, completion:@escaping ()->Void) -> Void {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { completion() }
     }
 }

@@ -19,18 +19,18 @@ class ExampleController: UIViewController {
         loadingButton.buttonTappedHandler = buttonTapped
         
         /* Font must be set programmatically, because it's not inspectable in IB */
-        loadingButton.titleFont = UIFont.systemFontOfSize(14)
+        loadingButton.titleFont = UIFont.systemFont(ofSize: 14)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    private func buttonTapped() {
+    fileprivate func buttonTapped() {
         NSObject.doSomeAsyncWork(secondsToWait: 4) { [weak self] in
             self?.loadingButton.stop()
         }
