@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class SimpleLoadingButton: UIView {
+open class SimpleLoadingButton: UIView {
     
     /**
      Button internal states
@@ -18,20 +18,20 @@ public class SimpleLoadingButton: UIView {
      - Highlighted: Title label is displayed, button background color changes to highlightedBackgroundColor
      - Loading:     Loading animation is displayed, background color changes to normalBackgroundColor
      */
-    private enum State {
-        case Normal
-        case Highlighted
-        case Loading
+    fileprivate enum State {
+        case normal
+        case highlighted
+        case loading
     }
     
     
     //MARK: - Private
-    private var currentlyVisibleView:UIView?
-    private var state:State = .Normal { didSet { if oldValue != state { updateUI(forState:state) } } }
+    fileprivate var currentlyVisibleView:UIView?
+    fileprivate var state:State = .normal { didSet { if oldValue != state { updateUI(forState:state) } } }
     
     
     /// Font for the title label (IB does not allow UIFont to be inspected therefore font must be set programmatically)
-    public var titleFont:UIFont = UIFont.systemFontOfSize(16) {
+    open var titleFont:UIFont = UIFont.systemFont(ofSize: 16) {
         didSet {
             guard let titleLabel = currentlyVisibleView as? UILabel else { return }
             titleLabel.font = titleFont
@@ -50,7 +50,7 @@ public class SimpleLoadingButton: UIView {
     }
     
     /// Title color
-    @IBInspectable var titleColor:UIColor = UIColor.whiteColor() {
+    @IBInspectable var titleColor:UIColor = UIColor.white {
         didSet {
             guard let titleLabel = currentlyVisibleView as? UILabel else { return }
             titleLabel.textColor = titleColor
@@ -58,7 +58,7 @@ public class SimpleLoadingButton: UIView {
     }
     
     /// Loading indicator color
-    @IBInspectable var loadingIndicatorColor:UIColor = UIColor.whiteColor()
+    @IBInspectable var loadingIndicatorColor:UIColor = UIColor.white
     
     /// Border width
     @IBInspectable var borderWidth:CGFloat = 0 {
@@ -66,7 +66,7 @@ public class SimpleLoadingButton: UIView {
     }
     
     /// Border color
-    @IBInspectable var borderColor:UIColor = UIColor.whiteColor() {
+    @IBInspectable var borderColor:UIColor = UIColor.white {
         didSet { updateStyle() }
     }
     
@@ -76,12 +76,12 @@ public class SimpleLoadingButton: UIView {
     }
     
     /// Background color for normal state
-    @IBInspectable var normalBackgroundColor:UIColor = UIColor.lightGrayColor() {
+    @IBInspectable var normalBackgroundColor:UIColor = UIColor.lightGray {
         didSet { updateStyle() }
     }
     
     /// Background color for highlighted state
-    @IBInspectable var highlightedBackgroundColor:UIColor = UIColor.darkGrayColor() {
+    @IBInspectable var highlightedBackgroundColor:UIColor = UIColor.darkGray {
         didSet { updateStyle() }
     }
     
@@ -89,11 +89,10 @@ public class SimpleLoadingButton: UIView {
     @IBInspectable var loadingAnimationDuration:Double = 2.0
     
     /// Size of the animating shape
-    @IBInspectable var loadingShapeSize:CGSize = CGSizeMake(10, 10)
-    
+    @IBInspectable var loadingShapeSize:CGSize = CGSize(width: 10, height: 10)
     
     //MARK: - Action
-    public var buttonTappedHandler:(()-> Void)?
+    open var buttonTappedHandler:(()-> Void)?
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -112,16 +111,16 @@ public class SimpleLoadingButton: UIView {
     /**
         Setup button to initial state
      */
-    private func setupButton() -> Void {
+    fileprivate func setupButton() -> Void {
         
-        let titleLabel = createTitleLabel(withFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame)))
+        let titleLabel = createTitleLabel(withFrame:CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: frame.width, height: frame.height)))
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         
-        let labelLeftConstraint = NSLayoutConstraint(item:titleLabel, attribute:.Left, relatedBy:.Equal, toItem:self, attribute: .Left, multiplier:1, constant: 0)
-        let labelTopConstraint = NSLayoutConstraint(item:titleLabel, attribute:.Top, relatedBy:.Equal, toItem:self, attribute: .Top, multiplier:1, constant: 0)
-        let labelRightConstraint = NSLayoutConstraint(item:titleLabel, attribute:.Right, relatedBy:.Equal, toItem:self, attribute: .Right, multiplier:1, constant: 0)
-        let labelBottomConstraint = NSLayoutConstraint(item:titleLabel, attribute:.Bottom, relatedBy:.Equal, toItem:self, attribute: .Bottom, multiplier:1, constant: 0)
+        let labelLeftConstraint = NSLayoutConstraint(item:titleLabel, attribute:.left, relatedBy:.equal, toItem:self, attribute: .left, multiplier:1, constant: 0)
+        let labelTopConstraint = NSLayoutConstraint(item:titleLabel, attribute:.top, relatedBy:.equal, toItem:self, attribute: .top, multiplier:1, constant: 0)
+        let labelRightConstraint = NSLayoutConstraint(item:titleLabel, attribute:.right, relatedBy:.equal, toItem:self, attribute: .right, multiplier:1, constant: 0)
+        let labelBottomConstraint = NSLayoutConstraint(item:titleLabel, attribute:.bottom, relatedBy:.equal, toItem:self, attribute: .bottom, multiplier:1, constant: 0)
         addConstraints([labelLeftConstraint, labelTopConstraint, labelRightConstraint, labelBottomConstraint])
         currentlyVisibleView = titleLabel
     }
@@ -131,12 +130,12 @@ public class SimpleLoadingButton: UIView {
     /**
         Button style update
      */
-    private func updateStyle() -> Void {
+    fileprivate func updateStyle() -> Void {
         backgroundColor = normalBackgroundColor
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = cornerRadius > 0
         layer.borderWidth = borderWidth
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
     }
     
     
@@ -145,21 +144,21 @@ public class SimpleLoadingButton: UIView {
         Update button UI as a result of state change
      - parameter buttonState: new button state
      */
-    private func updateUI(forState buttonState:State) -> Void {
+    fileprivate func updateUI(forState buttonState:State) -> Void {
         
         var buttonBackgroundColor:UIColor
         switch buttonState {
-        case .Normal:
+        case .normal:
             buttonBackgroundColor = normalBackgroundColor
             showLabelView()
-        case .Highlighted:
+        case .highlighted:
             buttonBackgroundColor = highlightedBackgroundColor
-        case .Loading:
+        case .loading:
             buttonBackgroundColor = normalBackgroundColor
             showLoadingView()
         }
         
-        UIView.animateWithDuration(0.15) { [unowned self] in self.backgroundColor = buttonBackgroundColor }
+        UIView.animate(withDuration: 0.15) { [unowned self] in self.backgroundColor = buttonBackgroundColor }
     }
     
     
@@ -169,10 +168,10 @@ public class SimpleLoadingButton: UIView {
      - parameter frame: Label frame
      - returns: instance of UILabel
      */
-    private func createTitleLabel(withFrame frame:CGRect) -> UILabel {
+    fileprivate func createTitleLabel(withFrame frame:CGRect) -> UILabel {
         let titleLabel = UILabel(frame:frame)
         titleLabel.text = title
-        titleLabel.textAlignment = .Center
+        titleLabel.textAlignment = .center
         titleLabel.textColor = titleColor
         titleLabel.font = titleFont
         return titleLabel
@@ -184,31 +183,31 @@ public class SimpleLoadingButton: UIView {
 extension SimpleLoadingButton {
     
     //MARK: - Touch handling
-    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard state == .Normal, let touchLocation = touches.first?.locationInView(self) where CGRectContainsPoint(self.bounds, touchLocation) else {
-            super.touchesBegan(touches, withEvent: event)
+        guard state == .normal, let touchLocation = touches.first?.location(in: self) , self.bounds.contains(touchLocation) else {
+            super.touchesBegan(touches, with: event)
             return
         }
-        state = .Highlighted
+        state = .highlighted
     }
     
-    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard state != .Loading, let touchLocation = touches.first?.locationInView(self) else {
-            super.touchesMoved(touches, withEvent: event)
+        guard state != .loading, let touchLocation = touches.first?.location(in: self) else {
+            super.touchesMoved(touches, with: event)
             return
         }
-        state = CGRectContainsPoint(self.bounds, touchLocation) ? .Highlighted : .Normal
+        state = self.bounds.contains(touchLocation) ? .highlighted : .normal
     }
     
-    override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard state == .Highlighted, let touchLocation = touches.first?.locationInView(self) where CGRectContainsPoint(self.bounds, touchLocation) else {
-            super.touchesEnded(touches, withEvent: event)
+        guard state == .highlighted, let touchLocation = touches.first?.location(in: self) , self.bounds.contains(touchLocation) else {
+            super.touchesEnded(touches, with: event)
             return
         }
-        state = .Loading
+        state = .loading
         if let handler = buttonTappedHandler { handler() }
     }
 }
@@ -223,7 +222,7 @@ extension SimpleLoadingButton {
     /**
         Transition to title label
      */
-    private func showLabelView() -> Void {
+    fileprivate func showLabelView() -> Void {
         
         guard let loadingView = currentlyVisibleView as? SimpleLoadingView else { return }
         let titleLabel = createTitleLabel(withFrame:loadingView.frame)
@@ -231,13 +230,13 @@ extension SimpleLoadingButton {
         currentlyVisibleView = titleLabel
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        let leftConstraint = NSLayoutConstraint(item: titleLabel, attribute:.Left, relatedBy:.Equal, toItem:self, attribute:.Left, multiplier:1, constant:0)
-        let topConstraint = NSLayoutConstraint(item: titleLabel, attribute:.Top, relatedBy:.Equal, toItem:self, attribute:.Top, multiplier:1, constant:0)
-        let rightConstraint = NSLayoutConstraint(item: titleLabel, attribute:.Right, relatedBy:.Equal, toItem:self, attribute:.Right, multiplier:1, constant:0)
-        let bottomConstraint = NSLayoutConstraint(item: titleLabel, attribute:.Bottom, relatedBy:.Equal, toItem:self, attribute:.Bottom, multiplier:1, constant:0)
+        let leftConstraint = NSLayoutConstraint(item: titleLabel, attribute:.left, relatedBy:.equal, toItem:self, attribute:.left, multiplier:1, constant:0)
+        let topConstraint = NSLayoutConstraint(item: titleLabel, attribute:.top, relatedBy:.equal, toItem:self, attribute:.top, multiplier:1, constant:0)
+        let rightConstraint = NSLayoutConstraint(item: titleLabel, attribute:.right, relatedBy:.equal, toItem:self, attribute:.right, multiplier:1, constant:0)
+        let bottomConstraint = NSLayoutConstraint(item: titleLabel, attribute:.bottom, relatedBy:.equal, toItem:self, attribute:.bottom, multiplier:1, constant:0)
         addConstraints([leftConstraint, topConstraint, bottomConstraint, rightConstraint])
         
-        UIView.transitionFromView(loadingView, toView:titleLabel, duration:0.15, options:.TransitionCrossDissolve) { (_) in
+        UIView.transition(from: loadingView, to:titleLabel, duration:0.15, options:.transitionCrossDissolve) { (_) in
             loadingView.removeFromSuperview()
         }
     }
@@ -245,7 +244,7 @@ extension SimpleLoadingButton {
     /**
         Transition to loading animation
      */
-    private func showLoadingView() -> Void {
+    fileprivate func showLoadingView() -> Void {
         
         guard let titleLabel = currentlyVisibleView as? UILabel else { return }
         let loadingView = SimpleLoadingView(withFrame:titleLabel.frame, animationDuration: loadingAnimationDuration, animatingShapeSize:loadingShapeSize, loadingIndicatorColor:loadingIndicatorColor)
@@ -253,14 +252,14 @@ extension SimpleLoadingButton {
         addSubview(loadingView)
         currentlyVisibleView = loadingView
         
-        let leftConstraint = NSLayoutConstraint(item: loadingView, attribute:.Left, relatedBy:.Equal, toItem:self, attribute:.Left, multiplier:1, constant:0)
-        let topConstraint = NSLayoutConstraint(item: loadingView, attribute:.Top, relatedBy:.Equal, toItem:self, attribute:.Top, multiplier:1, constant:0)
-        let rightConstraint = NSLayoutConstraint(item: loadingView, attribute:.Right, relatedBy:.Equal, toItem:self, attribute:.Right, multiplier:1, constant:0)
-        let bottomConstraint = NSLayoutConstraint(item: loadingView, attribute:.Bottom, relatedBy:.Equal, toItem:self, attribute:.Bottom, multiplier:1, constant:0)
+        let leftConstraint = NSLayoutConstraint(item: loadingView, attribute:.left, relatedBy:.equal, toItem:self, attribute:.left, multiplier:1, constant:0)
+        let topConstraint = NSLayoutConstraint(item: loadingView, attribute:.top, relatedBy:.equal, toItem:self, attribute:.top, multiplier:1, constant:0)
+        let rightConstraint = NSLayoutConstraint(item: loadingView, attribute:.right, relatedBy:.equal, toItem:self, attribute:.right, multiplier:1, constant:0)
+        let bottomConstraint = NSLayoutConstraint(item: loadingView, attribute:.bottom, relatedBy:.equal, toItem:self, attribute:.bottom, multiplier:1, constant:0)
         addConstraints([leftConstraint, topConstraint, bottomConstraint, rightConstraint])
         loadingView.startAnimation()
         
-        UIView.transitionFromView(titleLabel, toView: loadingView, duration:0.15, options:.TransitionCrossDissolve) { (_) in
+        UIView.transition(from: titleLabel, to: loadingView, duration:0.15, options:.transitionCrossDissolve) { (_) in
             titleLabel.removeFromSuperview()
         }
     }
@@ -273,14 +272,14 @@ extension SimpleLoadingButton {
         Start loading animation
      */
     public func animate() -> Void {
-        state = .Loading
+        state = .loading
     }
     
     /**
         Stop loading animation
      */
     public func stop() -> Void {
-        state = .Normal
+        state = .normal
     }
 }
 
