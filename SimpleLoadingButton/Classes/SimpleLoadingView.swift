@@ -10,12 +10,13 @@ import UIKit
 internal class SimpleLoadingView: UIView {
     
     //MARK: - Private
-    private var viewsArray:[UIView] = []
-    private let kLoadingViewAlpha:CGFloat = 0.6
-    private let kScaleFactor:CGFloat = 1.1
-    private var animationDuration:Double = 2.0
-    private var animatingShapeSize:CGSize = CGSizeMake(10, 10)
-    private var loadingIndicatorColor:UIColor = UIColor.whiteColor()
+    fileprivate var viewsArray:[UIView] = []
+    fileprivate let kLoadingViewAlpha:CGFloat = 0.6
+    fileprivate let kScaleFactor:CGFloat = 1.1
+    fileprivate var animationDuration:Double = 2.0
+    
+    private var animatingShapeSize:CGSize = CGSize(width: 10, height: 10)
+    private var loadingIndicatorColor:UIColor = UIColor.white
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -27,7 +28,7 @@ internal class SimpleLoadingView: UIView {
         
     }
     
-    convenience init(withFrame frame: CGRect, animationDuration duration:Double = 2.0, animatingShapeSize shapeSize:CGSize = CGSizeMake(10, 10), loadingIndicatorColor color:UIColor = UIColor.whiteColor()) {
+    convenience init(withFrame frame: CGRect, animationDuration duration:Double = 2.0, animatingShapeSize shapeSize:CGSize = CGSize(width: 10, height: 10), loadingIndicatorColor color:UIColor = UIColor.white) {
         self.init(frame: frame)
         animationDuration = duration
         animatingShapeSize = shapeSize
@@ -41,18 +42,18 @@ internal class SimpleLoadingView: UIView {
      */
     private func setupView() -> Void {
         
-        let centerViewFrame = CGRectMake(CGRectGetMidX(frame) - animatingShapeSize.width / 2,
-                                         CGRectGetMidY(frame) - animatingShapeSize.height / 2,
-                                         animatingShapeSize.width,
-                                         animatingShapeSize.height)
+        let centerViewFrame = CGRect(x: frame.midX - animatingShapeSize.width / 2,
+                                         y: frame.midY - animatingShapeSize.height / 2,
+                                         width: animatingShapeSize.width,
+                                         height: animatingShapeSize.height)
         let centerView = createCircleView(withFrame:centerViewFrame)
         addSubview(centerView)
         
         centerView.translatesAutoresizingMaskIntoConstraints = false
-        let centerViewWidthConstraint = NSLayoutConstraint(item:centerView, attribute:.Width, relatedBy:.Equal, toItem:nil, attribute:.Width, multiplier:1, constant:animatingShapeSize.width)
-        let centerViewHeightConstraint = NSLayoutConstraint(item:centerView, attribute:.Height, relatedBy:.Equal, toItem:nil, attribute:.Height, multiplier:1, constant:animatingShapeSize.height)
-        let centerViewXConstraint = NSLayoutConstraint(item:centerView, attribute:.CenterX, relatedBy:.Equal, toItem:self, attribute:.CenterX, multiplier:1, constant:0)
-        let centerViewYConstraint = NSLayoutConstraint(item:centerView, attribute:.CenterY, relatedBy:.Equal, toItem:self, attribute:.CenterY, multiplier:1, constant: 0)
+        let centerViewWidthConstraint = NSLayoutConstraint(item:centerView, attribute:.width, relatedBy:.equal, toItem:nil, attribute:.width, multiplier:1, constant:animatingShapeSize.width)
+        let centerViewHeightConstraint = NSLayoutConstraint(item:centerView, attribute:.height, relatedBy:.equal, toItem:nil, attribute:.height, multiplier:1, constant:animatingShapeSize.height)
+        let centerViewXConstraint = NSLayoutConstraint(item:centerView, attribute:.centerX, relatedBy:.equal, toItem:self, attribute:.centerX, multiplier:1, constant:0)
+        let centerViewYConstraint = NSLayoutConstraint(item:centerView, attribute:.centerY, relatedBy:.equal, toItem:self, attribute:.centerY, multiplier:1, constant: 0)
         addConstraints([centerViewWidthConstraint, centerViewHeightConstraint, centerViewXConstraint, centerViewYConstraint])
         
         var leftViewFrame = centerViewFrame
@@ -61,10 +62,10 @@ internal class SimpleLoadingView: UIView {
         addSubview(leftView)
         
         leftView.translatesAutoresizingMaskIntoConstraints = false
-        let leftViewWidthConstraint = NSLayoutConstraint(item:leftView, attribute:.Width, relatedBy:.Equal, toItem:nil, attribute:.Width, multiplier:1, constant:animatingShapeSize.width)
-        let leftViewHeightConstraint = NSLayoutConstraint(item:leftView, attribute:.Height, relatedBy:.Equal, toItem:nil, attribute:.Height, multiplier:1, constant:animatingShapeSize.height)
-        let leftViewXConstraint = NSLayoutConstraint(item:leftView, attribute:.Right, relatedBy:.Equal, toItem:centerView, attribute:.Left, multiplier:1, constant:-5)
-        let leftViewYConstraint = NSLayoutConstraint(item:leftView, attribute:.CenterY, relatedBy:.Equal, toItem:centerView, attribute:.CenterY, multiplier:1, constant: 0)
+        let leftViewWidthConstraint = NSLayoutConstraint(item:leftView, attribute:.width, relatedBy:.equal, toItem:nil, attribute:.width, multiplier:1, constant:animatingShapeSize.width)
+        let leftViewHeightConstraint = NSLayoutConstraint(item:leftView, attribute:.height, relatedBy:.equal, toItem:nil, attribute:.height, multiplier:1, constant:animatingShapeSize.height)
+        let leftViewXConstraint = NSLayoutConstraint(item:leftView, attribute:.right, relatedBy:.equal, toItem:centerView, attribute:.left, multiplier:1, constant:-5)
+        let leftViewYConstraint = NSLayoutConstraint(item:leftView, attribute:.centerY, relatedBy:.equal, toItem:centerView, attribute:.centerY, multiplier:1, constant: 0)
         addConstraints([leftViewWidthConstraint, leftViewHeightConstraint, leftViewXConstraint, leftViewYConstraint])
         
         var rightViewFrame = centerViewFrame
@@ -73,10 +74,10 @@ internal class SimpleLoadingView: UIView {
         addSubview(rightView)
         
         rightView.translatesAutoresizingMaskIntoConstraints = false
-        let rightViewWidthConstraint = NSLayoutConstraint(item:rightView, attribute:.Width, relatedBy:.Equal, toItem:nil, attribute:.Width, multiplier:1, constant:animatingShapeSize.width)
-        let rightViewHeightConstraint = NSLayoutConstraint(item:rightView, attribute:.Height, relatedBy:.Equal, toItem:nil, attribute:.Height, multiplier:1, constant:animatingShapeSize.height)
-        let rightViewXConstraint = NSLayoutConstraint(item:rightView, attribute:.Left, relatedBy:.Equal, toItem:centerView, attribute:.Right, multiplier:1, constant:5)
-        let rightViewYConstraint = NSLayoutConstraint(item:rightView, attribute:.CenterY, relatedBy:.Equal, toItem:centerView, attribute:.CenterY, multiplier:1, constant: 0)
+        let rightViewWidthConstraint = NSLayoutConstraint(item:rightView, attribute:.width, relatedBy:.equal, toItem:nil, attribute:.width, multiplier:1, constant:animatingShapeSize.width)
+        let rightViewHeightConstraint = NSLayoutConstraint(item:rightView, attribute:.height, relatedBy:.equal, toItem:nil, attribute:.height, multiplier:1, constant:animatingShapeSize.height)
+        let rightViewXConstraint = NSLayoutConstraint(item:rightView, attribute:.left, relatedBy:.equal, toItem:centerView, attribute:.right, multiplier:1, constant:5)
+        let rightViewYConstraint = NSLayoutConstraint(item:rightView, attribute:.centerY, relatedBy:.equal, toItem:centerView, attribute:.centerY, multiplier:1, constant: 0)
         addConstraints([rightViewWidthConstraint, rightViewHeightConstraint, rightViewXConstraint, rightViewYConstraint])
         viewsArray = [leftView, centerView, rightView]
     }
@@ -88,10 +89,10 @@ internal class SimpleLoadingView: UIView {
      - parameter size: Size of the loading circle
      - returns: UIView masked to circle shape
      */
-    private func createCircleView(withFrame circleFrame:CGRect) -> UIView {
+    fileprivate func createCircleView(withFrame circleFrame:CGRect) -> UIView {
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.path = UIBezierPath(ovalInRect: CGRect(x:0, y:0, width:CGRectGetWidth(circleFrame), height:CGRectGetHeight(circleFrame))).CGPath
+        shapeLayer.path = UIBezierPath(ovalIn: CGRect(x:0, y:0, width:circleFrame.width, height:circleFrame.height)).cgPath
         
         let ovalView = UIView(frame:circleFrame)
         ovalView.backgroundColor = loadingIndicatorColor
@@ -115,42 +116,42 @@ extension SimpleLoadingView {
         weak var centerView = viewsArray[1]
         weak var rightView = viewsArray[2]
         
-        UIView.animateKeyframesWithDuration(animationDuration, delay:0, options:[.BeginFromCurrentState, .Repeat], animations: {
+        UIView.animateKeyframes(withDuration: animationDuration, delay:0, options:[.beginFromCurrentState, .repeat], animations: {
             
-            UIView.addKeyframeWithRelativeStartTime(0, relativeDuration:1/4.0, animations: { [unowned self] in
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration:1/4.0, animations: { [unowned self] in
                 centerView?.alpha = self.kLoadingViewAlpha
                 rightView?.alpha = self.kLoadingViewAlpha
                 leftView?.alpha = 1
-                leftView?.transform = CGAffineTransformScale(CGAffineTransformIdentity, self.kScaleFactor, self.kScaleFactor)
-                rightView?.transform = CGAffineTransformIdentity
-                centerView?.transform = CGAffineTransformIdentity
+                leftView?.transform = CGAffineTransform.identity.scaledBy(x: self.kScaleFactor, y: self.kScaleFactor)
+                rightView?.transform = CGAffineTransform.identity
+                centerView?.transform = CGAffineTransform.identity
                 })
             
-            UIView.addKeyframeWithRelativeStartTime(1/4.0, relativeDuration:1/4.0, animations: {  [unowned self] in
-                leftView?.transform = CGAffineTransformIdentity
-                rightView?.transform = CGAffineTransformIdentity
-                centerView?.transform = CGAffineTransformScale(CGAffineTransformIdentity, self.kScaleFactor, self.kScaleFactor)
+            UIView.addKeyframe(withRelativeStartTime: 1/4.0, relativeDuration:1/4.0, animations: {  [unowned self] in
+                leftView?.transform = CGAffineTransform.identity
+                rightView?.transform = CGAffineTransform.identity
+                centerView?.transform = CGAffineTransform.identity.scaledBy(x: self.kScaleFactor, y: self.kScaleFactor)
                 leftView?.alpha = self.kLoadingViewAlpha
                 rightView?.alpha = self.kLoadingViewAlpha
                 centerView?.alpha = 1
                 })
             
-            UIView.addKeyframeWithRelativeStartTime(2/4.0, relativeDuration:1/4.0, animations: {  [unowned self] in
-                rightView?.transform = CGAffineTransformScale(CGAffineTransformIdentity, self.kScaleFactor, self.kScaleFactor)
-                leftView?.transform = CGAffineTransformIdentity
-                centerView?.transform = CGAffineTransformIdentity
+            UIView.addKeyframe(withRelativeStartTime: 2/4.0, relativeDuration:1/4.0, animations: {  [unowned self] in
+                rightView?.transform = CGAffineTransform.identity.scaledBy(x: self.kScaleFactor, y: self.kScaleFactor)
+                leftView?.transform = CGAffineTransform.identity
+                centerView?.transform = CGAffineTransform.identity
                 leftView?.alpha = self.kLoadingViewAlpha
                 centerView?.alpha = self.kLoadingViewAlpha
                 rightView?.alpha = 1
                 })
             
-            UIView.addKeyframeWithRelativeStartTime(3/4.0, relativeDuration:1/4.0, animations: {  [unowned self] in
+            UIView.addKeyframe(withRelativeStartTime: 3/4.0, relativeDuration:1/4.0, animations: {  [unowned self] in
                 leftView?.alpha = self.kLoadingViewAlpha
                 centerView?.alpha = self.kLoadingViewAlpha
                 rightView?.alpha = self.kLoadingViewAlpha
-                rightView?.transform = CGAffineTransformIdentity
-                leftView?.transform = CGAffineTransformIdentity
-                centerView?.transform = CGAffineTransformIdentity
+                rightView?.transform = CGAffineTransform.identity
+                leftView?.transform = CGAffineTransform.identity
+                centerView?.transform = CGAffineTransform.identity
                 })
             
             }, completion: nil)
