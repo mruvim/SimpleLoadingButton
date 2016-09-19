@@ -4,12 +4,11 @@ Simple button with loading animation
 ![SimpleLoadingButton](http://codingroup.com/assets/external/button.gif)
 
 
-
 ## Installation 
 ####CocoaPods:
 
 ```
-pod 'SimpleLoadingButton', '~> 0.1.4'
+pod 'SimpleLoadingButton', '~> 0.2'
 ```
 and
 
@@ -35,7 +34,9 @@ To view sample project run `pod try SimpleLoadingButton` in terminal
 
 ## Requirements
 
-Compatible with `iOS 8, iOS 9`
+Version 0.2 requires Swift 3
+
+Compatible with `iOS 8, iOS 9, iOS 10`
 
 ##Contribution
 
