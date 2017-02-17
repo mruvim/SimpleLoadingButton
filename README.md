@@ -1,6 +1,10 @@
 # SimpleLoadingButton
 Simple button with loading animation
 
+[![Version](https://img.shields.io/cocoapods/v/SimpleLoadingButton.svg?style=flat)](http://cocoapods.org/pods/SimpleLoadingButton)
+[![License](https://img.shields.io/cocoapods/l/SimpleLoadingButton.svg?style=flat)](http://cocoapods.org/pods/SimpleLoadingButton)
+[![Platform](https://img.shields.io/cocoapods/p/SimpleLoadingButton.svg?style=flat)](http://cocoapods.org/pods/SimpleLoadingButton)
+
 ![SimpleLoadingButton](http://codingroup.com/assets/external/button.gif)
 
 
