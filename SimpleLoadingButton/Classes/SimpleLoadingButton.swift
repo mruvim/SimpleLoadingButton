@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class SimpleLoadingButton: UIView {
+public class SimpleLoadingButton: UIControl {
     
     /**
      Button internal states
@@ -27,7 +27,7 @@ public class SimpleLoadingButton: UIView {
     
     //MARK: - Private
     fileprivate var currentlyVisibleView:UIView?
-    fileprivate var state:State = .normal { didSet { if oldValue != state { updateUI(forState:state) } } }
+    fileprivate var buttonState:State = .normal { didSet { if oldValue != buttonState { updateUI(forState:buttonState) } } }
     
     
     /// Font for the title label (IB does not allow UIFont to be inspected therefore font must be set programmatically)
@@ -92,9 +92,6 @@ public class SimpleLoadingButton: UIView {
     @IBInspectable var loadingShapeSize:CGSize = CGSize(width: 10, height: 10)
     
     
-    //MARK: - Action
-    public var buttonTappedHandler:(()-> Void)?
-    
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -118,11 +115,10 @@ public class SimpleLoadingButton: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         
-        let labelLeftConstraint = NSLayoutConstraint(item:titleLabel, attribute:.left, relatedBy:.equal, toItem:self, attribute: .left, multiplier:1, constant: 0)
-        let labelTopConstraint = NSLayoutConstraint(item:titleLabel, attribute:.top, relatedBy:.equal, toItem:self, attribute: .top, multiplier:1, constant: 0)
-        let labelRightConstraint = NSLayoutConstraint(item:titleLabel, attribute:.right, relatedBy:.equal, toItem:self, attribute: .right, multiplier:1, constant: 0)
-        let labelBottomConstraint = NSLayoutConstraint(item:titleLabel, attribute:.bottom, relatedBy:.equal, toItem:self, attribute: .bottom, multiplier:1, constant: 0)
-        addConstraints([labelLeftConstraint, labelTopConstraint, labelRightConstraint, labelBottomConstraint])
+        titleLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         currentlyVisibleView = titleLabel
     }
     
@@ -186,30 +182,37 @@ extension SimpleLoadingButton {
     //MARK: - Touch handling
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard state == .normal, let touchLocation = touches.first?.location(in: self) , self.bounds.contains(touchLocation) else {
+        guard buttonState == .normal,
+            let touchLocation = touches.first?.location(in: self),
+            bounds.contains(touchLocation) else {
             super.touchesBegan(touches, with: event)
             return
         }
-        state = .highlighted
+        buttonState = .highlighted
     }
     
      override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard state != .loading, let touchLocation = touches.first?.location(in: self) else {
+        guard buttonState != .loading,
+            let touchLocation = touches.first?.location(in: self) else {
             super.touchesMoved(touches, with: event)
             return
         }
-        state = self.bounds.contains(touchLocation) ? .highlighted : .normal
+        
+        buttonState = bounds.contains(touchLocation) ? .highlighted : .normal
     }
     
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard state == .highlighted, let touchLocation = touches.first?.location(in: self) , self.bounds.contains(touchLocation) else {
+        guard buttonState == .highlighted,
+            let touchLocation = touches.first?.location(in: self),
+            bounds.contains(touchLocation) else {
             super.touchesEnded(touches, with: event)
             return
         }
-        state = .loading
-        if let handler = buttonTappedHandler { handler() }
+        
+        buttonState = .loading
+        sendActions(for: .touchUpInside)
     }
 }
 
@@ -231,11 +234,10 @@ extension SimpleLoadingButton {
         currentlyVisibleView = titleLabel
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        let leftConstraint = NSLayoutConstraint(item: titleLabel, attribute:.left, relatedBy:.equal, toItem:self, attribute:.left, multiplier:1, constant:0)
-        let topConstraint = NSLayoutConstraint(item: titleLabel, attribute:.top, relatedBy:.equal, toItem:self, attribute:.top, multiplier:1, constant:0)
-        let rightConstraint = NSLayoutConstraint(item: titleLabel, attribute:.right, relatedBy:.equal, toItem:self, attribute:.right, multiplier:1, constant:0)
-        let bottomConstraint = NSLayoutConstraint(item: titleLabel, attribute:.bottom, relatedBy:.equal, toItem:self, attribute:.bottom, multiplier:1, constant:0)
-        addConstraints([leftConstraint, topConstraint, bottomConstraint, rightConstraint])
+        titleLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         UIView.transition(from: loadingView, to:titleLabel, duration:0.15, options:.transitionCrossDissolve) { (_) in
             loadingView.removeFromSuperview()
@@ -253,11 +255,10 @@ extension SimpleLoadingButton {
         addSubview(loadingView)
         currentlyVisibleView = loadingView
         
-        let leftConstraint = NSLayoutConstraint(item: loadingView, attribute:.left, relatedBy:.equal, toItem:self, attribute:.left, multiplier:1, constant:0)
-        let topConstraint = NSLayoutConstraint(item: loadingView, attribute:.top, relatedBy:.equal, toItem:self, attribute:.top, multiplier:1, constant:0)
-        let rightConstraint = NSLayoutConstraint(item: loadingView, attribute:.right, relatedBy:.equal, toItem:self, attribute:.right, multiplier:1, constant:0)
-        let bottomConstraint = NSLayoutConstraint(item: loadingView, attribute:.bottom, relatedBy:.equal, toItem:self, attribute:.bottom, multiplier:1, constant:0)
-        addConstraints([leftConstraint, topConstraint, bottomConstraint, rightConstraint])
+        loadingView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        loadingView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        loadingView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        loadingView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         loadingView.startAnimation()
         
         UIView.transition(from: titleLabel, to: loadingView, duration:0.15, options:.transitionCrossDissolve) { (_) in
@@ -273,14 +274,14 @@ extension SimpleLoadingButton {
         Start loading animation
      */
     public func animate() -> Void {
-        state = .loading
+        buttonState = .loading
     }
     
     /**
         Stop loading animation
      */
     public func stop() -> Void {
-        state = .normal
+        buttonState = .normal
     }
 }
 

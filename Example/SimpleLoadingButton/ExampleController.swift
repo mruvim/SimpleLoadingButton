@@ -16,8 +16,6 @@ class ExampleController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadingButton.buttonTappedHandler = buttonTapped
-        
         /* Font must be set programmatically, because it's not inspectable in IB */
         loadingButton.titleFont = UIFont.systemFont(ofSize: 14)
     }
@@ -30,9 +28,10 @@ class ExampleController: UIViewController {
         return .lightContent
     }
     
-    fileprivate func buttonTapped() {
-        NSObject.doSomeAsyncWork(secondsToWait: 4) { [weak self] in
-            self?.loadingButton.stop()
+    
+    @IBAction func buttonTapped(_ sender: SimpleLoadingButton) {
+        NSObject.doSomeAsyncWork(secondsToWait: 4) {
+            sender.stop()
         }
     }
 }

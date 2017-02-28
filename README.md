@@ -12,7 +12,7 @@ Simple button with loading animation
 ####CocoaPods:
 
 ```
-pod 'SimpleLoadingButton', '~> 0.2'
+pod 'SimpleLoadingButton', '~> 0.3'
 ```
 and
 
@@ -25,22 +25,22 @@ $ pod install
 Add files from `SimpleLoadingButton/Classes/*` to your project
 
 
+####Version 0.3 has breaking changes. Deployment target updated to iOS 9
+
 
 ##How to use it 
 1. Add view in IB, change class to `SimpleLoadingButton`
 2. Style button properties in IB Inspector
-3. Create IBOutlet and call `buttonInstance.stop()` to stop animation
-4. `buttonTappedHandler` callback will be invoked on `.TouchUpInside` event 
+3. Create IBAction from control, action will be fired on .touchUpInside
 
 To view sample project run `pod try SimpleLoadingButton` in terminal
 
 
-
 ## Requirements
 
-Version 0.2 requires Swift 3
+Version 0.2+ requires Swift 3
 
-Compatible with `iOS 8, iOS 9, iOS 10`
+Compatible with `iOS 9+`
 
 ##Contribution
 

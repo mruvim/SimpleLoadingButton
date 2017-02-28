@@ -50,11 +50,10 @@ internal class SimpleLoadingView: UIView {
         addSubview(centerView)
         
         centerView.translatesAutoresizingMaskIntoConstraints = false
-        let centerViewWidthConstraint = NSLayoutConstraint(item:centerView, attribute:.width, relatedBy:.equal, toItem:nil, attribute:.width, multiplier:1, constant:animatingShapeSize.width)
-        let centerViewHeightConstraint = NSLayoutConstraint(item:centerView, attribute:.height, relatedBy:.equal, toItem:nil, attribute:.height, multiplier:1, constant:animatingShapeSize.height)
-        let centerViewXConstraint = NSLayoutConstraint(item:centerView, attribute:.centerX, relatedBy:.equal, toItem:self, attribute:.centerX, multiplier:1, constant:0)
-        let centerViewYConstraint = NSLayoutConstraint(item:centerView, attribute:.centerY, relatedBy:.equal, toItem:self, attribute:.centerY, multiplier:1, constant: 0)
-        addConstraints([centerViewWidthConstraint, centerViewHeightConstraint, centerViewXConstraint, centerViewYConstraint])
+        centerView.widthAnchor.constraint(equalToConstant: animatingShapeSize.width).isActive = true
+        centerView.heightAnchor.constraint(equalToConstant: animatingShapeSize.height).isActive = true
+        centerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        centerView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         var leftViewFrame = centerViewFrame
         leftViewFrame.origin.x = centerViewFrame.origin.x - animatingShapeSize.width - 5
@@ -62,11 +61,10 @@ internal class SimpleLoadingView: UIView {
         addSubview(leftView)
         
         leftView.translatesAutoresizingMaskIntoConstraints = false
-        let leftViewWidthConstraint = NSLayoutConstraint(item:leftView, attribute:.width, relatedBy:.equal, toItem:nil, attribute:.width, multiplier:1, constant:animatingShapeSize.width)
-        let leftViewHeightConstraint = NSLayoutConstraint(item:leftView, attribute:.height, relatedBy:.equal, toItem:nil, attribute:.height, multiplier:1, constant:animatingShapeSize.height)
-        let leftViewXConstraint = NSLayoutConstraint(item:leftView, attribute:.right, relatedBy:.equal, toItem:centerView, attribute:.left, multiplier:1, constant:-5)
-        let leftViewYConstraint = NSLayoutConstraint(item:leftView, attribute:.centerY, relatedBy:.equal, toItem:centerView, attribute:.centerY, multiplier:1, constant: 0)
-        addConstraints([leftViewWidthConstraint, leftViewHeightConstraint, leftViewXConstraint, leftViewYConstraint])
+        leftView.widthAnchor.constraint(equalToConstant: animatingShapeSize.width).isActive = true
+        leftView.heightAnchor.constraint(equalToConstant: animatingShapeSize.height).isActive = true
+        leftView.rightAnchor.constraint(equalTo: centerView.leftAnchor, constant: -5).isActive = true
+        leftView.centerYAnchor.constraint(equalTo: centerView.centerYAnchor).isActive = true
         
         var rightViewFrame = centerViewFrame
         rightViewFrame.origin.x = centerViewFrame.origin.x + animatingShapeSize.width + 5
@@ -74,11 +72,10 @@ internal class SimpleLoadingView: UIView {
         addSubview(rightView)
         
         rightView.translatesAutoresizingMaskIntoConstraints = false
-        let rightViewWidthConstraint = NSLayoutConstraint(item:rightView, attribute:.width, relatedBy:.equal, toItem:nil, attribute:.width, multiplier:1, constant:animatingShapeSize.width)
-        let rightViewHeightConstraint = NSLayoutConstraint(item:rightView, attribute:.height, relatedBy:.equal, toItem:nil, attribute:.height, multiplier:1, constant:animatingShapeSize.height)
-        let rightViewXConstraint = NSLayoutConstraint(item:rightView, attribute:.left, relatedBy:.equal, toItem:centerView, attribute:.right, multiplier:1, constant:5)
-        let rightViewYConstraint = NSLayoutConstraint(item:rightView, attribute:.centerY, relatedBy:.equal, toItem:centerView, attribute:.centerY, multiplier:1, constant: 0)
-        addConstraints([rightViewWidthConstraint, rightViewHeightConstraint, rightViewXConstraint, rightViewYConstraint])
+        rightView.widthAnchor.constraint(equalToConstant: animatingShapeSize.width).isActive = true
+        rightView.heightAnchor.constraint(equalToConstant: animatingShapeSize.height).isActive = true
+        rightView.leftAnchor.constraint(equalTo: centerView.rightAnchor, constant: 5).isActive = true
+        rightView.centerYAnchor.constraint(equalTo: centerView.centerYAnchor).isActive = true
         viewsArray = [leftView, centerView, rightView]
     }
     
