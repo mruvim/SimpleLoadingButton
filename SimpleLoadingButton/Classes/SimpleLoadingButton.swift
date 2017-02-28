@@ -18,7 +18,7 @@ public class SimpleLoadingButton: UIControl {
      - Highlighted: Title label is displayed, button background color changes to highlightedBackgroundColor
      - Loading:     Loading animation is displayed, background color changes to normalBackgroundColor
      */
-    private enum State {
+    fileprivate enum State {
         case normal
         case highlighted
         case loading
