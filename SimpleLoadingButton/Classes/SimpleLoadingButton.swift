@@ -22,6 +22,8 @@ public class SimpleLoadingButton: UIControl {
         case normal
         case highlighted
         case loading
+        
+        
     }
     
     
@@ -58,7 +60,12 @@ public class SimpleLoadingButton: UIControl {
     }
     
     /// Loading indicator color
-    @IBInspectable var loadingIndicatorColor:UIColor = UIColor.white
+    @IBInspectable var loadingIndicatorColor:UIColor = UIColor.white {
+        
+        didSet{
+            updateUI(forState: buttonState)
+        }
+    }
     
     /// Border width
     @IBInspectable var borderWidth:CGFloat = 0 {
