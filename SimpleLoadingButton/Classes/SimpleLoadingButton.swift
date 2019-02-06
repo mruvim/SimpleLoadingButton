@@ -18,7 +18,7 @@ public class SimpleLoadingButton: UIControl {
      - Highlighted: Title label is displayed, button background color changes to highlightedBackgroundColor
      - Loading:     Loading animation is displayed, background color changes to normalBackgroundColor
      */
-    fileprivate enum State {
+    fileprivate enum ButtonState {
         case normal
         case highlighted
         case loading
@@ -29,7 +29,7 @@ public class SimpleLoadingButton: UIControl {
     
     //MARK: - Private
     fileprivate var currentlyVisibleView:UIView?
-    fileprivate var buttonState:State = .normal { didSet { if oldValue != buttonState { updateUI(forState:buttonState) } } }
+    fileprivate var buttonState:ButtonState = .normal { didSet { if oldValue != buttonState { updateUI(forState:buttonState) } } }
     
     
     /// Font for the title label (IB does not allow UIFont to be inspected therefore font must be set programmatically)
@@ -148,7 +148,7 @@ public class SimpleLoadingButton: UIControl {
         Update button UI as a result of state change
      - parameter buttonState: new button state
      */
-    private func updateUI(forState buttonState:State) -> Void {
+    private func updateUI(forState buttonState:ButtonState) -> Void {
         
         var buttonBackgroundColor:UIColor
         switch buttonState {
