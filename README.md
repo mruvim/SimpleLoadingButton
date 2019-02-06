@@ -8,11 +8,11 @@ Simple button with loading animation
 ![SimpleLoadingButton](http://codingroup.com/assets/external/button.gif)
 
 
-## Installation 
+## Installation
 ####CocoaPods:
 
 ```
-pod 'SimpleLoadingButton', '~> 0.3'
+pod 'SimpleLoadingButton', '~> 0.4'
 ```
 and
 
@@ -24,11 +24,11 @@ $ pod install
 ####Manual:
 Add files from `SimpleLoadingButton/Classes/*` to your project
 
-
+####Version 0.4 has breaking changes. Deployment target updated to iOS 11
 ####Version 0.3 has breaking changes. Deployment target updated to iOS 9
 
 
-##How to use it 
+##How to use it
 1. Add view in IB, change class to `SimpleLoadingButton`
 2. Style button properties in IB Inspector
 3. Create IBAction from control, action will be fired on .touchUpInside
@@ -38,9 +38,9 @@ To view sample project run `pod try SimpleLoadingButton` in terminal
 
 ## Requirements
 
-Version 0.2+ requires Swift 3
+Version 0.4+ requires Swift 4.2
 
-Compatible with `iOS 9+`
+Compatible with `iOS 11+`
 
 ##Contribution
 
@@ -50,7 +50,7 @@ Pull requests are welcome
 
 ## Contact
 
-Ruvim Miksanskiy 
+Ruvim Miksanskiy
 <a href="mailto:ruva@codingroup.com">![Email](http://codingroup.com/assets/external/email-icon.png)</a>
 
 ## License (MIT)

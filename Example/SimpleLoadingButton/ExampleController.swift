@@ -17,7 +17,7 @@ class ExampleController: UIViewController {
         super.viewDidLoad()
         
         /* Font must be set programmatically, because it's not inspectable in IB */
-        loadingButton.titleFont = UIFont.systemFont(ofSize: 14)
+        loadingButton.titleFont = UIFont.systemFont(ofSize: 14, weight: .bold)
     }
     
     override func didReceiveMemoryWarning() {
